@@ -1,0 +1,19 @@
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: stretch;
+}
+
+mat-card {
+  margin: 30px auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px grey;
+  justify-content: space-between;
+  color:#414141;
+}
