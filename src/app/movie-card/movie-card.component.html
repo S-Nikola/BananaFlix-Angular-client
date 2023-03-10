@@ -30,7 +30,12 @@
           >
             Synopsis
         </button>
-        <mat-icon style="color:blue">favorite_border</mat-icon>
+        <mat-icon 
+          (click)="toggleFavoriteMovie(movie._id)"
+          style="color:blue"
+        >
+          {{favoriteMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}
+        </mat-icon>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>

@@ -114,21 +114,7 @@ export class UserRegistrationService {
     const token = localStorage.getItem('token');
     return this.http
     .post(`${apiUrl}/users/${username}/movies/${movieId}`, 
-        {headers: new HttpHeaders(
-          { Authorization: 'Bearer ' + token, }
-          )})
-          .pipe(
-            map(this.extractResponseData),
-            map((data) => data.FavoriteMovies),
-            catchError(this.handleError)
-          );
-  }
-
-  editUser(): Observable<any> {
-    const username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    return this.http
-    .put(`${apiUrl}/users/${username}`, 
+      { FavoriteMovie: movieId },
         {headers: new HttpHeaders(
           { Authorization: 'Bearer ' + token, }
           )})
@@ -137,26 +123,40 @@ export class UserRegistrationService {
             catchError(this.handleError)
           );
   }
-
-  deleteUser(): Observable<any> {
-    const username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    return this.http
-    .delete(`${apiUrl}/users/${username}`, 
-        {headers: new HttpHeaders(
-          { Authorization: 'Bearer ' + token, }
-          )})
-          .pipe(
-            map(this.extractResponseData),
-            catchError(this.handleError)
-          );
-  }
-
+  
   removeFavoriteMovie(movieId: string): Observable<any> {
     const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     return this.http
     .delete(`${apiUrl}/users/${username}/movies/${movieId}`, 
+        {headers: new HttpHeaders(
+          { Authorization: 'Bearer ' + token, }
+          )})
+          .pipe(
+            map(this.extractResponseData),
+            catchError(this.handleError)
+          );
+  }
+
+  editUser(updatedUserDetails: any): Observable<any> {
+    const username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+    return this.http
+    .put(`${apiUrl}/users/${username}`, updatedUserDetails, 
+        {headers: new HttpHeaders(
+          { Authorization: 'Bearer ' + token, }
+          )})
+          .pipe(
+            map(this.extractResponseData),
+            catchError(this.handleError)
+          );
+  }
+
+  deleteUser(username: string): Observable<any> {
+    // const username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+    return this.http
+    .delete(`${apiUrl}/users/${username}`, 
         {headers: new HttpHeaders(
           { Authorization: 'Bearer ' + token, }
           )})

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   max-width: 1200px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
   justify-self: stretch;
@@ -16,4 +17,21 @@ mat-card {
   box-shadow: 0 0 10px grey;
   justify-content: space-between;
   color:#414141;
+}
+.update-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+mat-card-header {
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content:center;
+  margin-top: 24px;
 }

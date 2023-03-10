@@ -6,6 +6,7 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 import { GenreCardComponent } from '../genre-card/genre-card.component';
 import { DirectorCardComponent } from '../director-card/director-card.component';
 import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
+import { Token } from '@angular/compiler';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component'
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  favoriteMovies: any[] = [];
   constructor(
     public fetchApiData: UserRegistrationService, 
     public dialog: MatDialog,
@@ -23,12 +25,13 @@ export class MovieCardComponent {
 
 ngOnInit(): void {
   this.getMovies();
+  this.getFavorites();
 }
 
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log(this.movies);
+      // console.log(this.movies);
       return this.movies;
     });
   }
@@ -70,6 +73,45 @@ getMovies(): void {
       // Assigning the dialog a width
       width: '280px'
     });
+  }
+
+   /**
+   * fetch favorite movies from FetchApiDataService service
+   * @returns an empty array or an array of movies favorited by the user
+   * @function getFavorites
+   */
+   getFavorites(): void {
+    this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+      this.favoriteMovies = resp;
+      console.log('fav movies:', this.favoriteMovies);
+      return this.favoriteMovies;
+    });
+  }
+
+  toggleFavoriteMovie(id: string) {
+    if (!this.favoriteMovies.includes(id)) {
+      this.fetchApiData.addFavoriteMovie(id).subscribe((res) => {
+        this.favoriteMovies = res.FavoriteMovies;
+        this.snackBar.open('Added to favorites.', 'OK', {
+          duration: 3000
+        })
+      }, (res) => {
+        this.snackBar.open(res.message, 'OK', {
+          duration: 3000
+        });
+      })
+    } else {
+      this.fetchApiData.removeFavoriteMovie(id).subscribe((res) => {
+        this.favoriteMovies = res.FavoriteMovies;
+        this.snackBar.open('Removed from favorites.', 'OK', {
+          duration: 3000
+        })
+      }, (res) => {
+        this.snackBar.open(res.message, 'OK', {
+          duration: 3000
+        });
+      })
+    }
   }
 
 }
