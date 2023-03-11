@@ -65,9 +65,10 @@ getMovies(): void {
     });
   }
 
-  openSynopsisDialog(description: string): void {
+  openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisCardComponent, {
       data: {
+        Title: title,
         Description: description,
       },
       // Assigning the dialog a width

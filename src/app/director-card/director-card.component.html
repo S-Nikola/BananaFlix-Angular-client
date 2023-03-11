@@ -1,14 +1,15 @@
-<mat-card>
-  <mat-card-header style="display: flex; justify-content: center; padding-bottom: 16px;">
+<mat-card class="dialog-card">
+  <div class="dialog-box">
+    <mat-card-header style="display: flex; justify-content: center; padding-bottom: 16px;">
       <mat-card-title>
-          {{data.Name}}
+        Director
       </mat-card-title>
-  </mat-card-header>
-  <mat-divider></mat-divider>
-  <mat-dialog-content style="line-height: normal;">
-      <p>{{data.Bio}}</p>
-  </mat-dialog-content>
-  <mat-dialog-content style="line-height: normal;">
-    <p>{{data.Birth}}</p>
-</mat-dialog-content>
+    </mat-card-header>
+    <mat-dialog-content  style="line-height: normal;">
+      <p>Bio: {{data.Bio}}</p>
+    </mat-dialog-content>
+    <mat-dialog-content style="line-height: normal;">
+      <p>Birth: {{data.Birth}}</p>
+    </mat-dialog-content>
+  </div>
 </mat-card>

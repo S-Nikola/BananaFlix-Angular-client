@@ -10,6 +10,7 @@ import { UserRegistrationService } from '../fetch-api-data.service'
 })
 export class ProfilePageComponent implements OnInit {
   user: any = {};
+  favoriteMovies: any[] = [];
 
   @Input() updatedUser = {
     Username: '',
@@ -26,6 +27,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
+    this.getFavorites();
   }
 
   getProfile(): void {
@@ -45,21 +47,23 @@ export class ProfilePageComponent implements OnInit {
    * Make API call to update the user, reset the localstorage and reload the profile-page
    */
 updateUserAccount(): void {
-  this.fetchApiData.editUser(this.updatedUser).subscribe((response) => {
-    // Logic for a successful user registration goes here! (To be implemented)
-    localStorage.setItem('username', response.Username);
-    this.snackBar.open('Your profile is updated successfully! You can log in again with your new credentials', 'OK', {
-      duration: 4000
+  if (confirm('Are you happy with your changes?')) {
+    this.fetchApiData.editUser(this.updatedUser).subscribe((response) => {
+      // Logic for a successful user registration goes here! (To be implemented)
+      localStorage.setItem('username', response.Username);
+      this.snackBar.open('Your profile is updated successfully! You can log in again with your new credentials', 'OK', {
+        duration: 4000
+      });
+      localStorage.clear();
+      this.router.navigate(['welcome'])
+    }, (response) => {
+      //Error response
+      //console.log('onUserUpdate() response2:', response);
+      this.snackBar.open(response.errors[0].msg, 'OK', {
+        duration: 6000
+      });
     });
-    localStorage.clear();
-    this.router.navigate(['welcome'])
-  }, (response) => {
-    //Error response
-    //console.log('onUserUpdate() response2:', response);
-    this.snackBar.open(response.errors[0].msg, 'OK', {
-      duration: 6000
-    });
-  });
+  }
 }
 
 /**
@@ -82,6 +86,12 @@ deleteUserAccount(username: string): void {
     });
   }
 }
-
+getFavorites(): void {
+  this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+    this.favoriteMovies = resp;
+    console.log('fav movies:', this.favoriteMovies);
+    return this.favoriteMovies;
+  });
+}
 
 }

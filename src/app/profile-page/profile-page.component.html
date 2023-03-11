@@ -84,18 +84,19 @@
             name="Birthday"
           >
         </mat-form-field>
+        <mat-card-actions class="card-actions">
+          <button
+            type="submit"
+            mat-raised-button
+            (click)="updateUserAccount()"
+          >
+          <mat-icon>edit</mat-icon>Update profile
+          </button>
+        </mat-card-actions>
       </form>
     </mat-card-content>
   
-    <mat-card-actions class="card-actions">
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="updateUserAccount()"
-      >
-      <mat-icon>edit</mat-icon>Update profile
-      </button>
-    </mat-card-actions>
+    
   </mat-card>
 </div>
 

@@ -1,0 +1,19 @@
+.dialog-card {
+  max-width: 400px;
+  margin: auto;
+  padding: 25px;
+  background-color: #23395D;
+  border-style: solid;
+  border: 3px solid #F5AC3E;
+  border-width: 5px;
+  color: #F5AC3E;
+}
+
+.dialog-box {
+  border: 3px solid #F5AC3E;
+  color: #F5AC3E;
+}
+
+mat-dialog-content p {
+  color: #F5AC3E;
+}

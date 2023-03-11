@@ -6,5 +6,27 @@
   top: 0;
   z-index: 999;
   justify-content: space-between;
-  color: blue;
+  background-color: #23395D;
+  color: #F5AC3E;
+}
+
+
+a {
+  text-decoration: none;
+  color: #F5AC3E;
+}
+
+a:hover {
+  filter:drop-shadow(0 0 8px white);
+}
+
+
+.nav-logo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.navbar button:hover {
+  filter:drop-shadow(0 0 8px white);
 }

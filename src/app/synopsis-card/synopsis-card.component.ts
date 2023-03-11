@@ -10,6 +10,7 @@ export class SynopsisCardComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) 
       public data: {
+        Title: string,
         Description: string;
       }
   ) {}

@@ -1,0 +1,28 @@
+.dialog-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  max-width: 400px;
+  margin: auto;
+  padding: 25px;
+  background-color: #23395D;
+  border-style: solid;
+  border: 3px solid #F5AC3E;
+  border-width: 5px;
+  color: #F5AC3E;
+}
+
+.dialog-box {
+  border: 3px solid #F5AC3E;
+  color: #F5AC3E;
+}
+
+mat-dialog-content p {
+  color: #F5AC3E;
+}
+
+.dialog-box button {
+  background-color: #23395D;
+  color: #F5AC3E;
+  border: 2px solid #F5AC3E;
+}

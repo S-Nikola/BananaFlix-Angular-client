@@ -7,31 +7,101 @@
   margin-left: auto;
   margin-right: auto;
   justify-self: stretch;
+  background-color: #152238;
 }
 
 mat-card {
   margin: 30px auto;
-  padding: 15px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
+  border: 2px solid #F5AC3E;
   box-shadow: 0 0 10px grey;
   justify-content: space-between;
-  color:#414141;
+  background-color: #152238;
+  color:#F5AC3E;
+}
+.info-card h1 {
+  text-align: center;
 }
 .update-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.update-card button {
+  background-color: #23395D;
+  color: #F5AC3E;
+  border: 2px solid #F5AC3E;
+}
 mat-card-header {
   font-weight: 500;
   display: flex;
   justify-content: center;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 
 .card-actions {
   display: flex;
   justify-content:center;
   margin-top: 24px;
+}
+
+@media all and (max-width: 300px) {
+  .profile-container {
+    margin-top: 50px;
+  }
+
+  mat-card {
+    max-width: 250px;
+  }
+
+  mat-card-header {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 500px) {
+  .profile-container {
+    margin-top: 60px;
+  }
+
+  mat-card {
+    min-width: 200px;
+    max-width: 280px;
+  }
+
+  mat-card-header {
+    font-size: 16px;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 1000px) {
+  .profile-container {
+    margin-top: 100px;
+  }
+
+  mat-card {
+    min-width: 300px;
+    max-width: 600px;
+  }
+
+  mat-card-header {
+    font-size: 18px;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .profile-container {
+    margin-top: 120px;
+  }
+
+  mat-card {
+    min-width: 300px;
+    max-width: 600px;
+  }
+
+  mat-card-header {
+    font-size: 20px;
+  }
 }
