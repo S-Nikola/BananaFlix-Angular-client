@@ -23,6 +23,10 @@ mat-card {
 }
 .info-card h1 {
   text-align: center;
+  overflow-wrap: break-word;
+}
+.user-info {
+  overflow-wrap: break-word;
 }
 .update-form {
   display: flex;
