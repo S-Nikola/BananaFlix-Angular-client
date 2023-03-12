@@ -2,9 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
-  padding: 25px;
+  padding: 25px 25px;
   background-color: #23395D;
   border-style: solid;
   border: 3px solid #F5AC3E;
@@ -25,4 +25,8 @@ mat-dialog-content p {
   background-color: #23395D;
   color: #F5AC3E;
   border: 2px solid #F5AC3E;
+}
+
+label {
+  color: black;
 }

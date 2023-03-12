@@ -10,14 +10,15 @@
       <div>
         <b>Username: </b>{{user.Username}}
       </div>
-
+      <br>
       <div>
         <b>Email: </b>{{user.Email}}
       </div>
-
+      <br>
       <div>
-        <b>Birthday: </b>{{user.Birthday}}
+        <b>Birthday: </b>{{user.Birthday | date:'longDate'}}
       </div>
+      <br>
     </mat-card-content>
     <mat-card-actions class="card-actions">
       <button
