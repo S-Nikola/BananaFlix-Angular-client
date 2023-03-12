@@ -10,7 +10,6 @@ import { UserRegistrationService } from '../fetch-api-data.service'
 })
 export class ProfilePageComponent implements OnInit {
   user: any = {};
-  favoriteMovies: any[] = [];
 
   @Input() updatedUser = {
     Username: '',
@@ -27,7 +26,6 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
-    this.getFavorites();
   }
 
   getProfile(): void {
@@ -40,58 +38,50 @@ export class ProfilePageComponent implements OnInit {
       });
     }
 
-/**
-   * Update user info
-   * 
-   * @remarks
-   * Make API call to update the user, reset the localstorage and reload the profile-page
+  /**
+     * Update user info
+     * 
+     * @remarks
+     * Make API call to update the user, reset the localstorage and reload the profile-page
+     */
+  updateUserAccount(): void {
+    if (confirm('Are you happy with your changes?')) {
+      this.fetchApiData.editUser(this.updatedUser).subscribe((response) => {
+        // Logic for a successful user registration goes here! (To be implemented)
+        localStorage.setItem('username', response.Username);
+        this.snackBar.open('Your profile is updated successfully! You can log in again with your new credentials', 'OK', {
+          duration: 4000
+        });
+        localStorage.clear();
+        this.router.navigate(['welcome'])
+      }, (response) => {
+        //Error response
+        //console.log('onUserUpdate() response2:', response);
+        this.snackBar.open(response.errors[0].msg, 'OK', {
+          duration: 6000
+        });
+      });
+    }
+  }
+
+  /**
+   * Get a confirmation from the user, if given, navigate to the welcome page
+   * Inform the user of the changes and delete user data (deleteUser)
+   * @function deleteUserAccount
    */
-updateUserAccount(): void {
-  if (confirm('Are you happy with your changes?')) {
-    this.fetchApiData.editUser(this.updatedUser).subscribe((response) => {
-      // Logic for a successful user registration goes here! (To be implemented)
-      localStorage.setItem('username', response.Username);
-      this.snackBar.open('Your profile is updated successfully! You can log in again with your new credentials', 'OK', {
-        duration: 4000
+  deleteUserAccount(username: string): void {
+    if (confirm('Your account will be permanently deleted, are you sure you want to continue?')) {
+      this.router.navigate(['welcome']).then(() => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        this.snackBar.open('Account Deleted.', 'OK', {
+          duration: 5000,
+        });
       });
-      localStorage.clear();
-      this.router.navigate(['welcome'])
-    }, (response) => {
-      //Error response
-      //console.log('onUserUpdate() response2:', response);
-      this.snackBar.open(response.errors[0].msg, 'OK', {
-        duration: 6000
+      this.fetchApiData.deleteUser(username).subscribe((result) => {
+        console.log(result);
+        localStorage.clear();
       });
-    });
+    }
   }
-}
-
-/**
- * Get a confirmation from the user, if given, navigate to the welcome page
- * Inform the user of the changes and delete user data (deleteUser)
- * @function deleteUserAccount
- */
-deleteUserAccount(username: string): void {
-  if (confirm('Your account will be permanently deleted, are you sure you want to continue?')) {
-    this.router.navigate(['welcome']).then(() => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('username');
-      this.snackBar.open('Account Deleted.', 'OK', {
-        duration: 5000,
-      });
-    });
-    this.fetchApiData.deleteUser(username).subscribe((result) => {
-      console.log(result);
-      localStorage.clear();
-    });
-  }
-}
-getFavorites(): void {
-  this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-    this.favoriteMovies = resp;
-    console.log('fav movies:', this.favoriteMovies);
-    return this.favoriteMovies;
-  });
-}
-
 }
