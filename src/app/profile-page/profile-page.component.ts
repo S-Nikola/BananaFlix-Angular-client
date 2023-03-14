@@ -30,10 +30,8 @@ export class ProfilePageComponent implements OnInit {
 
   getProfile(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
-      console.log('response:', resp);
         this.user = resp;
         Birthday: new Date(resp.Birthday).toLocaleDateString()
-        console.log(this.user);
         return this.user;
       });
     }
@@ -76,7 +74,6 @@ export class ProfilePageComponent implements OnInit {
         });
       });
       this.fetchApiData.deleteUser(username).subscribe((result) => {
-        console.log(result);
         localStorage.clear();
       });
     }
