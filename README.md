@@ -63,8 +63,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **Displays a welcome view where users will be able to either log in or register an
 account**
 - **Once authenticated, the user can view all movies**
@@ -86,7 +84,7 @@ account**
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> DThis project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0..
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0..
 
 To get a local copy up and running, follow these steps.
 
@@ -103,8 +101,7 @@ Clone this repository to your desired folder.
 ### Install
 
 Install this project with:
-
-Run: npm install
+npm install
 
 ### Usage
 
