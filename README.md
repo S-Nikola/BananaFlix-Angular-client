@@ -25,10 +25,7 @@
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -129,8 +126,6 @@ Run `ng deploy` --base-href=/project_folder_name/
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 👤 **Nikola Stefanovski**
 
