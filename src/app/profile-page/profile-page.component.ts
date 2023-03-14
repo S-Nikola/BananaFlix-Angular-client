@@ -40,9 +40,8 @@ export class ProfilePageComponent implements OnInit {
 
   /**
      * Update user info
-     * 
      * @remarks
-     * Make API call to update the user, reset the localstorage and reload the profile-page
+     * Make API call to update the user, reset the local storage and reload the profile-page
      */
   updateUserAccount(): void {
     if (confirm('Are you happy with your changes?')) {
@@ -55,8 +54,6 @@ export class ProfilePageComponent implements OnInit {
         localStorage.clear();
         this.router.navigate(['welcome'])
       }, (response) => {
-        //Error response
-        //console.log('onUserUpdate() response2:', response);
         this.snackBar.open(response.errors[0].msg, 'OK', {
           duration: 6000
         });

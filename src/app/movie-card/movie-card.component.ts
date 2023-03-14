@@ -28,6 +28,10 @@ ngOnInit(): void {
   this.getFavorites();
 }
 
+
+/**
+ * fetches the data for the movies from the API
+ */
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -37,10 +41,9 @@ getMovies(): void {
   }
 
   /**
-   * opens the MovieGenreComponent dialog
+   * opens the GenreCardComponent dialog
    * @param name 
-   * @param description
-   * @function openGenreDialog 
+   * @param description 
    */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreCardComponent, {
@@ -53,6 +56,12 @@ getMovies(): void {
     });
   }
 
+  /**
+   * opens the DirectorCardComponent dialog
+   * @param name
+   * @param bio
+   * @param birth
+   */
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorCardComponent, {
       data: {
@@ -65,6 +74,11 @@ getMovies(): void {
     });
   }
 
+  /**
+   * opens the SynopsisCardComponent dialog
+   * @param title
+   * @param description
+   */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisCardComponent, {
       data: {
@@ -89,6 +103,11 @@ getMovies(): void {
     });
   }
 
+/**
+ * function adds or removes favorite movies from the FavoriteMovie array of the user
+ * it uses the fetch method that communicates with the API
+ * @param id 
+ */
   toggleFavoriteMovie(id: string) {
     if (!this.favoriteMovies.includes(id)) {
       this.fetchApiData.addFavoriteMovie(id).subscribe((res) => {
