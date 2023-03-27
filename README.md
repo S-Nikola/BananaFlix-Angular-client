@@ -11,17 +11,17 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+- [🛠 Built With](#built-with)
+- [Tech Stack](#tech-stack)
+- [Key Features](#key-features)
+- [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Install](#install)
+- [Usage](#usage)
+- [Run tests](#run-tests)
+- [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -38,7 +38,7 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://angular.io/">Angular</a></li>
   </ul>
 </details>
 
@@ -83,13 +83,13 @@ account**
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0..
 
-To get a local copy up and running, follow these steps.
+To get a local copy up and running, follow these steps:
 
 ### Prerequisites
 
 In order to run this project you need:
 
-Angular CLI, any version above 9 or above
+Angular CLI, any version 9 or above
 
 ### Setup
 
@@ -137,9 +137,9 @@ Run `ng deploy` --base-href=/project_folder_name/
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Render favorite movies on the profile page]**
-- [ ] **[Add information about actors]**
-- [ ] **[Add reccommended movies based on the list of favorites by the user]**
+- [ ] **Render favorite movies on the profile page**
+- [ ] **Add information about actors**
+- [ ] **Add reccommended movies based on the list of favorites by the user**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
